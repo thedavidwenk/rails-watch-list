@@ -1,11 +1,19 @@
-<h1>Your Movie Lists</h1>
-<p><%= @status  %></p>
+<div class="d-flex justify-content-between align-items-start mt-4">
+  <div>
+    <h1>Your Movie Lists</h1>
+    <p><%= @status  %></p>
+  </div>
+     <%= render 'lists/modal' %>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newListModal">
+      Add New List
+    </button>
+</div>
 
 <ul>
 
   <% @lists.reverse_each do |list| %>
    <li>
-     <%= list.name %> 
+    <%= link_to list.name, list_path(list)  %>  
    </li>
   <% end %>
 
