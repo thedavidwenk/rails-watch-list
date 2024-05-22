@@ -1,22 +1,34 @@
 <div class="d-flex justify-content-between align-items-start mt-4">
   <div>
-    <h1><%= @list.name.capitalize %> list</h1>
+    <h1>My <%= @list.name.capitalize %> list</h1>
   </div>
-     <%= render 'bookmarks/modal'  %>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBookmarkModal">
-      Add Bookmark to List
-    </button>
+  <%= render 'bookmarks/modal' %>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBookmarkModal">
+    Add Bookmark to List
+  </button>
 </div>
 
-<ul>
+<div class="row mt-3 row-cols-1">
   <% @list.bookmarks.reverse_each do |bookmark| %>
-   <li>
-    <p><%= bookmark.comment %></p>
-    <p><%= bookmark.movie.title %></p>
-    <p> <%= link_to 'Delete', bookmark_path(bookmark), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></p>
-   </li>
+    <div class="col-12 col-sm-12 col-md-6 col-lg mb-4">
+      <div class="card h-100">
+        <div class="imgOverflow">
+          <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="Card image cap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div class="rating">
+            <i class="fa-regular fa-star"></i> <strong><%= bookmark.movie.rating %></strong>/10
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><strong><%= bookmark.movie.title %></strong></h5>
+          <p class="card-text"><%= bookmark.movie.overview %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Comment: <%= bookmark.comment %></li>
+        </ul>
+        <div class="card-body">
+          <a class="card-link"><%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></a>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

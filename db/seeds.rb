@@ -1,5 +1,4 @@
-puts "delete all movies..."
-
+Bookmark.destroy_all
 Movie.destroy_all
 
 puts "create new movies..."
@@ -17,5 +16,7 @@ Movie.create(title: "The Dark Knight", overview: "When the menace known as the J
 Movie.create(title: "Pulp Fiction", overview: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.", poster_url: "https://image.tmdb.org/t/p/original/tbVZ3Sq88dZaCANlUcewQuHQOaE.jpg", rating: 8.9)
 
 Movie.create(title: "Fight Club", overview: "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.", poster_url: "https://image.tmdb.org/t/p/original/a26cQPRhJPX6GbWfQbvZdrrp9j9.jpg", rating: 8.8)
+
+Movie.create(title: "The Godfather", overview: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", poster_url: "https://image.tmdb.org/t/p/original/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg", rating: 9.2)
 
 puts "Done!"
