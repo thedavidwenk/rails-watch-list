@@ -2,7 +2,7 @@
   <div>
     <h1><%= @list.name.capitalize %> list</h1>
   </div>
-     <%= render 'bookmarks/modal', list: @list, bookmark: @bookmark  %>
+     <%= render 'bookmarks/modal'  %>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBookmarkModal">
       Add Bookmark to List
     </button>
@@ -13,6 +13,10 @@
    <li>
     <p><%= bookmark.comment %></p>
     <p><%= bookmark.movie.title %></p>
+    <p> <%= link_to 'Delete', bookmark_path(bookmark), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></p>
    </li>
   <% end %>
 </ul>
