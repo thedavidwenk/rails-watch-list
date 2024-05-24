@@ -2,10 +2,13 @@
   <div>
     <h1>My <%= @list.name.capitalize %> list</h1>
   </div>
-  <%= render 'bookmarks/modal' %>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBookmarkModal">
-    Add Bookmark to List
-  </button>
+  <div>
+    <%= render 'bookmarks/modal' %>
+    <%= link_to "Delete List", @list, class: "btn btn-outline-danger mx-1", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBookmarkModal">
+      Add Bookmark
+    </button>
+  </div>
 </div>
 
 <div class="row mt-3 row-cols-1">
