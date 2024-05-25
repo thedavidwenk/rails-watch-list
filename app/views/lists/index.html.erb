@@ -15,6 +15,9 @@
    <li>
     <%= link_to list.name, list_path(list)  %>  
    </li>
+    <% if list.photo.attached? %>
+      <%= cl_image_tag list.photo.key, width: 400, height: 300, crop: :thumb %>  
+    <% end %>
   <% end %>
 
 </ul>

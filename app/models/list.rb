@@ -5,4 +5,7 @@ class List < ApplicationRecord
 
   # validations
   validates :name, uniqueness: true,  presence: true
+
+  # image storage 
+  has_one_attached :photo
 end

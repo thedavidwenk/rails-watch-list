@@ -11,6 +11,8 @@
           <div class="mb-3">
             <%= form.label :name, "List Name" %>
             <%= form.text_field :name, class: "form-control", required: true %>
+            <%= form.label :photo, "Image Upload" , class: "mt-3"%>
+            <%= form.file_field :photo, class: "form-control", required: true %>
           </div>
         <% end %>
       </div>
